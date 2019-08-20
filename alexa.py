@@ -10,3 +10,7 @@ skill_adapter = SkillAdapter(
   skill_id="amzn1.ask.skill.bd7515ac-93e7-48c6-b2b5-58dcd0fb0951", 
   app=app)
 skill_adapter.register(app=app, route="/alexa")
+
+@app.route('/')
+def index():
+    return "Hello World\n"

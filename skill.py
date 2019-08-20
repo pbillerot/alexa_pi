@@ -196,7 +196,7 @@ class PlayRadioIntentHandler(AbstractRequestHandler):
         handler_input.response_builder.speak("En avant la musique")
         return handler_input.response_builder.response
 
-class PlayRadioStartedHandler(AbstractRequestHandler):
+class PlaybackStartedHandler(AbstractRequestHandler):
     """AudioPlayer.PlaybackStarted Directive received.
     Confirming that the requested audio file began playing.
     Do not send any specific response.
@@ -211,7 +211,7 @@ class PlayRadioStartedHandler(AbstractRequestHandler):
         logger.info("Playback started")
         return handler_input.response_builder.response
 
-class PlayRadioFinishedHandler(AbstractRequestHandler):
+class PlaybackFinishedHandler(AbstractRequestHandler):
     """AudioPlayer.PlaybackFinished Directive received.
     Confirming that the requested audio file completed playing.
     Do not send any specific response.
@@ -226,8 +226,7 @@ class PlayRadioFinishedHandler(AbstractRequestHandler):
         logger.info("Playback finished")
         return handler_input.response_builder.response
 
-
-class PlayRadioStoppedHandler(AbstractRequestHandler):
+class PlaybackStoppedHandler(AbstractRequestHandler):
     """AudioPlayer.PlaybackStopped Directive received.
     Confirming that the requested audio file stopped playing.
     Do not send any specific response.
@@ -243,11 +242,10 @@ class PlayRadioStoppedHandler(AbstractRequestHandler):
         return handler_input.response_builder.response
 
 sb.add_request_handler(PlayRadioIntentHandler())
-sb.add_request_handler(PlayRadioStartedHandler())
-sb.add_request_handler(PlayRadioFinishedHandler())
-sb.add_request_handler(PlayRadioStoppedHandler())
 
-
+sb.add_request_handler(PlaybackStartedHandler())
+sb.add_request_handler(PlaybackFinishedHandler())
+sb.add_request_handler(PlaybackStoppedHandler())
 
 sb.add_exception_handler(CatchAllExceptionHandler())
 
