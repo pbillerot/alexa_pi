@@ -1,0 +1,17 @@
+[Unit]
+Description=alexa gunicorn daemon
+After=network.target
+
+[Service]
+PIDFile=/run/gunicorn/alexa-pid
+User=alexa
+Group=www-data
+WorkingDirectory=/home/billerot/git/alexa_pi
+ExecStart=/home/billerot/git/alexa_pi/venv/bin/gunicorn -c /home/billerot/git/alexa_pi/gunicorn.py wsgi:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,11 @@
+command = '/home/billerot/git/alexa_pi/venv/bin/gunicorn'
+pythonpath = '/home/billerot/git/alexa_pi'
+workers = 4
+user = 'alexa'
+bind = 'unix:/home/billerot/git/alexa_pi/sock'
+pid = '/run/gunicorn/alexa-pid'
+errorlog = '/var/log/alexa/error.log'
+accesslog = '/var/log/alexa/access.log'
+access_log_format = '%({X-Real-IP}i)s %({X-Forwarded-For}i)s %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
+loglevel = 'warning'
+capture_output = True
