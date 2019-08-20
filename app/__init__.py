@@ -2,13 +2,10 @@ from flask import Flask
 from ask_sdk_core.skill_builder import SkillBuilder
 from flask_ask_sdk.skill_adapter import SkillAdapter
 
-import logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from app import sb, logger
 
 def create_app():
-  logger("create_app")
-  from .app import sb
+  print("************** create_app")
   app = Flask(__name__)
   skill_adapter = SkillAdapter(
     skill=sb.create(), 
