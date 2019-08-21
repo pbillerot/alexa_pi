@@ -2,7 +2,7 @@ from flask import Flask
 from ask_sdk_core.skill_builder import SkillBuilder
 from flask_ask_sdk.skill_adapter import SkillAdapter
 
-from app import sb, logger
+from .app import sb, logger
 
 def create_app():
   print("************** create_app")
